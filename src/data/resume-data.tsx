@@ -53,15 +53,25 @@ export const RESUME_DATA = {
   ],
   work: [
     {
-      company: "STRABAG",
-      link: "https://www.strabag.com/",
+      company: "WH",
+      link: "https://mzv.gov.cz/santiago/es/visas_e_informaciones_consulares/el_programa_de_vacaciones_y_trabajo.html",
       badges: ["Praga, Chequia"],
-      title: "Masaryčka Building B",
+      title: "Working Holiday",
       start: "2023",
       end: "2023",
       description:
-        "Oficina Técnica | Apoyo técnico en la construcción del 5to Piso del edificio Masaryčka B, verificación del cumplimiento de las EETT, apoyo en el seguimiento de las horas hombre del proyecto.",
+        "En 2023 tuve la oportunidad de participar en el programa Working Holiday, el cual me permitió trabajar y mejorar mis competencias en idiomas (ingles).",
     },
+    // {
+    //   company: "STRABAG",
+    //   link: "https://www.strabag.com/",
+    //   badges: ["Praga, Chequia"],
+    //   title: "Masaryčka Building B",
+    //   start: "2023",
+    //   end: "2023",
+    //   description:
+    //     "Oficina Técnica | Apoyo técnico en la construcción del 5to Piso del edificio Masaryčka B, verificación del cumplimiento de las EETT, apoyo en el seguimiento de las horas hombre del proyecto.",
+    // },
     {
       company: "SIGDO KOPPERS",
       link: "https://www.skic.com/",
@@ -164,6 +174,6 @@ export const RESUME_DATA = {
     "ETABS",
     "MS Office",
   ],
-  idiomas: ["Español (Nativo)", "Ingles (Avanzado)", "Noruego (Básico)"],
+  idiomas: ["Español (Nativo)", "Ingles (Avanzado)"],
   otros: ["Licencia de Conducir Clase B-C", "Licencia Internacional Drones"],
 } as const;
