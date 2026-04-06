@@ -28,7 +28,7 @@ export default function Page() {
               {RESUME_DATA.about}
             </p>
             <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
-              32 años, Soltero.
+              34 años, Soltero.
             </p>
             <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <a
