@@ -63,6 +63,36 @@ export const RESUME_DATA = {
     //     "En 2023 tuve la oportunidad de participar en el programa Working Holiday, el cual me permitió trabajar y mejorar mis competencias en idiomas (ingles).",
     // },
     {
+      company: "CAVCO",
+      link: "https://www.strabag.com/",
+      badges: ["Coronel, Chile"],
+      title: "Montaje Electromecanico Proyecto Destilacion SOLVAY",
+      start: "2026",
+      end: "Presente",
+      description:
+        "Control de Proyecto | Control de Costos y planificacion de obra, ademas lider de equipo técnico y administrativo de la obra.",
+    },
+    {
+      company: "CAVCO",
+      link: "https://www.strabag.com/",
+      badges: ["Arauco, Chile"],
+      title: "Obras Civiles y Montaje Electromecanico Planta Oxigeno Linde, Celulosa Arauco",
+      start: "2025",
+      end: "2025",
+      description:
+        "Control de Proyecto | Control de Costos y planificacion de obra, ademas lider de equipo técnico y administrativo de la obra.",
+    },
+    {
+      company: "CAVCO",
+      link: "https://www.strabag.com/",
+      badges: ["Nacimiento, Chile"],
+      title: "Obras Civiles y Montaje Electromecanico Planta Oxigeno Linde, CMPC Nacimiento",
+      start: "2024",
+      end: "2024",
+      description:
+        "Control de Proyecto | Control de Costos y planificacion de obra, ademas lider de equipo técnico y administrativo de la obra.",
+    },
+    {
       company: "STRABAG",
       link: "https://www.strabag.com/",
       badges: ["Praga, Chequia"],
