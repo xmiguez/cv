@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { ModeToggle } from "@/components/switch";
+import { PrintToolbar } from "@/components/print-toolbar";
 import Image from "next/image";
 
 import cv from "@/images/cv.jpg";
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-8">
-      <section className="mx-auto w-full max-w-2xl space-y-8  print:space-y-6">
-        <div className="flex items-center justify-between">
+    <main className="container relative mx-auto min-h-0 scroll-my-12 overflow-auto p-4 print:overflow-visible print:p-0 print:shadow-none md:p-8">
+      <section className="mx-auto w-full max-w-2xl space-y-8 print:max-w-none print:space-y-6 print:px-0">
+        <div className="flex items-center justify-between gap-4 border-b border-transparent pb-6 print:border-border print:pb-5">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
             <p className=" text-pretty pr-4 font-mono text-sm text-muted-foreground">
@@ -79,7 +80,7 @@ export default function Page() {
                 </Button>
               ))}
             </div>
-            <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
+            <div className="hidden flex-col gap-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.contact.email ? (
                 <a href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
@@ -89,7 +90,12 @@ export default function Page() {
                 <a href={`tel:${RESUME_DATA.contact.tel}`}>
                   <span className="underline">{RESUME_DATA.contact.tel}</span>
                 </a>
-              ) : null}{" "}
+              ) : null}
+              {RESUME_DATA.contact.social.map((social) => (
+                <a key={social.name} href={social.url} className="underline">
+                  {social.name}: {social.url}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -98,13 +104,17 @@ export default function Page() {
           </Avatar>
         </div>
         <Section>
-          <h2 className="text-xl font-bold">Sobre mi</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Sobre mi
+          </h2>
           <p className="text-pretty font-mono text-sm text-muted-foreground">
             {RESUME_DATA.summary}
           </p>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Experiencia</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Experiencia
+          </h2>
           {RESUME_DATA.work.map((work) => {
             return (
               <Card key={work.company}>
@@ -144,7 +154,9 @@ export default function Page() {
           })}
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Educacion</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Educación
+          </h2>
           {RESUME_DATA.education.map((education) => {
             return (
               <Card key={education.school}>
@@ -164,7 +176,9 @@ export default function Page() {
           })}
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Cursos y Practicas</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Cursos y prácticas
+          </h2>
           {RESUME_DATA.cursos.map((cursos) => {
             return (
               <Card key={cursos.school}>
@@ -184,7 +198,9 @@ export default function Page() {
           })}
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Software</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Software
+          </h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
               return <Badge key={skill}>{skill}</Badge>;
@@ -192,7 +208,9 @@ export default function Page() {
           </div>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Idiomas</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Idiomas
+          </h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.idiomas.map((idiomas) => {
               return <Badge key={idiomas}>{idiomas}</Badge>;
@@ -200,7 +218,9 @@ export default function Page() {
           </div>
         </Section>
         <Section>
-          <h2 className="text-xl font-bold">Otros</h2>
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Otros
+          </h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.otros.map((otros) => {
               return <Badge key={otros}>{otros}</Badge>;
@@ -208,12 +228,15 @@ export default function Page() {
           </div>
         </Section>
         <Section className="print-force-new-page scroll-mb-16">
-          <h2 className="text-xl font-bold">Galeria</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <h2 className="border-b border-transparent pb-1 text-xl font-bold print:border-border print:pb-2">
+            Galería
+          </h2>
+          <div className="print-gallery -mx-3 grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-3 md:grid-cols-2 lg:grid-cols-3">
             <ProjectCard />
           </div>
         </Section>
-        <div className="fixed bottom-4 right-4 md:right-10">
+        <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 print:hidden md:right-10">
+          <PrintToolbar />
           <ModeToggle />
         </div>
       </section>
